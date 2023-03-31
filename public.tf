@@ -1,7 +1,7 @@
 locals {
-    public_count = var.type == "public" ? 1 : 0
+  public_count = var.type == "public" ? 1 : 0
 
-    ngw_name = "${var.labels.prefix}-${var.labels.stack}-${var.labels.component}-ngw-${var.labels.env}"
+  ngw_name = "${var.labels.prefix}-${var.labels.stack}-${var.labels.component}-ngw-${var.labels.env}"
 }
 
 resource "aws_subnet" "public" {
@@ -45,8 +45,8 @@ resource "aws_route_table_association" "public" {
 
 # Elastic-IP (eip) for NAT
 resource "aws_eip" "public_ngw_eip" {
-  count      = local.public_count
-  vpc        = true
+  count = local.public_count
+  vpc   = true
   tags = merge(
     var.labels,
     var.tags,

@@ -1,5 +1,5 @@
 locals {
-    private_count = var.type == "private" ? 1 : 0
+  private_count = var.type == "private" ? 1 : 0
 }
 
 resource "aws_subnet" "private" {
@@ -8,7 +8,7 @@ resource "aws_subnet" "private" {
   availability_zone = var.availability_zone
   cidr_block        = var.cidr_block
 
-//  map_public_ip_on_launch = var.map_public_ip_on_launch
+  //  map_public_ip_on_launch = var.map_public_ip_on_launch
   tags = merge(
     var.labels,
     var.tags,
