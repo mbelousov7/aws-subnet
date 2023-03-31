@@ -1,9 +1,10 @@
 output "subnet_id" {
-  description = "ID of the created public subnets"
+  description = "ID of the created subnet"
   value = coalescelist(
     aws_subnet.private.*.id,
     aws_subnet.public.*.id
-  )
+  )[0]
+  
 }
 
 output "ngw_id" {
