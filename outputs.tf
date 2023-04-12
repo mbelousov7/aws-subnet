@@ -4,7 +4,6 @@ output "subnet_id" {
     aws_subnet.private.*.id,
     aws_subnet.public.*.id
   )[0]
-  
 }
 
 output "ngw_id" {
