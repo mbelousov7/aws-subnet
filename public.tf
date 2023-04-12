@@ -5,11 +5,10 @@ locals {
 }
 
 resource "aws_subnet" "public" {
-  count             = local.public_count
-  vpc_id            = data.aws_vpc.default.id
-  availability_zone = var.availability_zone
-  cidr_block        = var.cidr_block
-
+  count                   = local.public_count
+  vpc_id                  = data.aws_vpc.default.id
+  availability_zone       = var.availability_zone
+  cidr_block              = var.cidr_block
   map_public_ip_on_launch = var.map_public_ip_on_launch
   tags = merge(
     var.labels,
